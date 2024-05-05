@@ -6,11 +6,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Dialog, {
-  DialogButton,
-  DialogContent,
-  DialogFooter,
-} from "react-native-popup-dialog";
+import Dialog, { DialogContent } from "react-native-popup-dialog";
+import TileContent from "./TileContent";
 
 const possibleOptions = [
   "X",
@@ -46,7 +43,8 @@ export default function Tile() {
   return (
     <TouchableOpacity onPress={() => setShowOptionMenu(true)}>
       <View style={styles.container}>
-        <Text style={styles.text}>{value}</Text>
+        {/* <Text style={styles.text}>{value}</Text> */}
+        <TileContent value={value} />
         <Dialog
           visible={showOptionMenu}
           onTouchOutside={() => setShowOptionMenu(false)}
@@ -54,6 +52,7 @@ export default function Tile() {
           <DialogContent style={styles.dialogContent}>
             {possibleOptions.map((option) => (
               <TouchableHighlight
+                key={option}
                 style={{ height: 40 }}
                 underlayColor={"#ffffff4c"}
                 onPress={() => selectOption(option)}
