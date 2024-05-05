@@ -2,7 +2,11 @@ import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Tile from "./Tile";
 
-export default function Line() {
+type LineProps = {
+  name: string;
+};
+
+export default function Line({ name }: LineProps) {
   const [isFilled, setIsFilled] = useState(false);
 
   return (
@@ -10,7 +14,7 @@ export default function Line() {
       style={styles.touchable}
       onPress={() => setIsFilled(!isFilled)}
     >
-      <Text style={styles.text}>Candelabro</Text>
+      <Text style={styles.text}>{name}</Text>
       <View style={styles.container}>
         <Tile isFilled={isFilled} />
         <Tile isFilled={isFilled} />

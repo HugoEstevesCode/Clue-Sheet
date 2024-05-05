@@ -103,6 +103,8 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     alignItems: "center",
     justifyContent: "center",
+    borderBottomWidth: 0,
+    borderTopWidth: 0,
   },
   text: {
     color: "#FFF",

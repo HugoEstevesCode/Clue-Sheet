@@ -5,6 +5,38 @@ import Line from "./components/Line";
 import Section from "./components/Section";
 import { Header } from "react-native-elements";
 import PlayerSection from "./components/PlayersSection";
+import { ReactNode } from "react";
+
+const data = [
+  {
+    label: "Pessoas",
+    options: ["Mustard", "Plum", "Green", "Peacock", "Scarlett", "White"],
+  },
+  {
+    label: "Armas",
+    options: [
+      "Punhal",
+      "Candelabro",
+      "Revólver",
+      "Corda",
+      "Cano de Chumbo",
+      "Chave Inglesa",
+    ],
+  },
+  {
+    label: "Salas",
+    options: [
+      "Entrada",
+      "Sala",
+      "Sala Jantar",
+      "Salão Baile",
+      "Jardim Inverno",
+      "Sala Bilhar",
+      "Biblioteca",
+      "Escritóro",
+    ],
+  },
+];
 
 export default function App() {
   return (
@@ -15,9 +47,15 @@ export default function App() {
       />
       <PlayerSection />
       <ScrollView>
-        <Section label="Pessoal" />
-        <Section label="Armas" />
-        <Section label="Salas" />
+        {data.map<ReactNode>((section) => (
+          <Section
+            key={section.label}
+            label={section.label}
+            options={section.options}
+          />
+        ))}
+        {/* <Section label="Armas" options={[]} />
+        <Section label="Salas" options={[]} /> */}
         <StatusBar style="auto" />
       </ScrollView>
     </View>

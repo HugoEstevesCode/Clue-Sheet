@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -11,18 +11,16 @@ import Line from "./Line";
 
 type SectionProps = {
   label: string;
+  options: string[];
 };
 
-export default function Section({ label }: SectionProps) {
+export default function Section({ label, options }: SectionProps): ReactNode {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{label}</Text>
-      <Line />
-      <Line />
-      <Line />
-      <Line />
-      <Line />
-      <Line />
+      {options.map((lineOption) => (
+        <Line key={lineOption} name={lineOption} />
+      ))}
     </View>
   );
 }
@@ -35,9 +33,6 @@ const styles = StyleSheet.create({
     width: 350,
     alignContent: "flex-start",
     flexDirection: "column",
-    borderStyle: "dotted",
-    borderColor: "red",
-    borderWidth: 1,
   },
   text: {
     flex: 1,
