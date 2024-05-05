@@ -28,15 +28,39 @@ const notationOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 const valuesOptions = ["X", "-", "?"];
 
-export default function Tile() {
+type TileProps = {
+  isFilled: boolean;
+};
+
+export default function Tile({ isFilled }: TileProps) {
   const [value, setValue] = useState("");
   const [showOptionMenu, setShowOptionMenu] = useState(false);
-  const [notations, setNotations] = useState([]);
+  const [notations, setNotations] = useState<string[]>([]);
 
   const selectOption = (option: string) => {
+    if (value === option) {
+      setValue("");
+      setShowOptionMenu(false);
+      return;
+    }
+
     if (valuesOptions.includes(option)) {
       setValue(option);
       setShowOptionMenu(false);
+      return;
+    }
+
+    if (notationOptions.includes(option)) {
+      if (notations.includes(option)) {
+        const newNotations = notations.filter((opt) => opt !== option);
+        setNotations(newNotations);
+      } else {
+        const newNotations = [...notations];
+        newNotations.push(option);
+        setNotations(newNotations);
+      }
+      setShowOptionMenu(false);
+      return;
     }
   };
 
@@ -44,7 +68,7 @@ export default function Tile() {
     <TouchableOpacity onPress={() => setShowOptionMenu(true)}>
       <View style={styles.container}>
         {/* <Text style={styles.text}>{value}</Text> */}
-        <TileContent value={value} />
+        <TileContent value={value} notations={notations} isFilled={isFilled} />
         <Dialog
           visible={showOptionMenu}
           onTouchOutside={() => setShowOptionMenu(false)}

@@ -3,16 +3,21 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Tile from "./Tile";
 
 export default function Line() {
+  const [isFilled, setIsFilled] = useState(false);
+
   return (
-    <TouchableOpacity style={styles.touchable} onPress={() => {}}>
+    <TouchableOpacity
+      style={styles.touchable}
+      onPress={() => setIsFilled(!isFilled)}
+    >
       <Text style={styles.text}>Candelabro</Text>
       <View style={styles.container}>
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
+        <Tile isFilled={isFilled} />
+        <Tile isFilled={isFilled} />
+        <Tile isFilled={isFilled} />
+        <Tile isFilled={isFilled} />
+        <Tile isFilled={isFilled} />
+        <Tile isFilled={isFilled} />
       </View>
     </TouchableOpacity>
   );

@@ -1,33 +1,10 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import Dialog, { DialogContent } from "react-native-popup-dialog";
-import TileContent from "./TileContent";
+import { StyleSheet, View } from "react-native";
 import { Input } from "react-native-elements";
-import Player from "./Player";
 
-export default function PlayerSection() {
+export default function Player() {
   return (
     <View style={styles.container}>
-      <Player />
-      <Player />
-      <Player />
-      <Player />
-      <Player />
-      <Player />
-      {/* <Input
-        inputContainerStyle={{
-          height: 10,
-          alignSelf: "center",
-        }}
-        style={styles.input}
-        placeholder="Pl 1"
-      />
       <Input
         inputContainerStyle={{
           height: 10,
@@ -35,7 +12,7 @@ export default function PlayerSection() {
         }}
         style={styles.input}
         placeholder="Pl 1"
-      /> */}
+      />
     </View>
   );
 }
@@ -47,14 +24,15 @@ const styles = StyleSheet.create({
   },
   container: {
     display: "flex",
-    flexDirection: "row",
     flex: 1,
     maxWidth: 40,
     maxHeight: 40,
     minWidth: 40,
     minHeight: 40,
-    alignContent: "flex-start",
-    marginRight: 85,
+    borderWidth: 1,
+    borderColor: "#FFF",
+    borderStyle: "solid",
+    alignContent: "center",
   },
   text: {
     color: "#FFF",

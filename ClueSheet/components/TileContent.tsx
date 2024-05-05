@@ -23,27 +23,37 @@ const valuesOptions = ["X", "-", "?"];
 
 type TileContentProps = {
   value: string;
+  notations: string[];
+  isFilled: boolean;
 };
 
-export default function TileContent({ value }: TileContentProps) {
+export default function TileContent({
+  value,
+  notations,
+  isFilled,
+}: TileContentProps) {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.text}>1</Text>
-        <Text style={styles.text}>2</Text>
-        <Text style={styles.text}>3</Text>
+        <Text style={styles.text}>{notations.includes("1") ? 1 : ""}</Text>
+        <Text style={styles.text}>{notations.includes("2") ? 2 : ""}</Text>
+        <Text style={styles.text}>{notations.includes("3") ? 3 : ""}</Text>
       </View>
       <View style={{ ...styles.row, minHeight: 20 }}>
-        <Text style={{ ...styles.text, lineHeight: 20 }}>4</Text>
-        <Text style={{ ...styles.text, lineHeight: 20, fontSize: 16 }}>
-          {value}
+        <Text style={{ ...styles.text, lineHeight: 20 }}>
+          {notations.includes("4") ? 4 : ""}
         </Text>
-        <Text style={{ ...styles.text, lineHeight: 20 }}>5</Text>
+        <Text style={{ ...styles.text, lineHeight: 20, fontSize: 16 }}>
+          {isFilled && value !== "X" ? "-" : value}
+        </Text>
+        <Text style={{ ...styles.text, lineHeight: 20 }}>
+          {notations.includes("5") ? 5 : ""}
+        </Text>
       </View>
       <View style={styles.row}>
-        <Text style={styles.text}>6</Text>
-        <Text style={styles.text}>7</Text>
-        <Text style={styles.text}>8</Text>
+        <Text style={styles.text}>{notations.includes("6") ? 6 : ""}</Text>
+        <Text style={styles.text}>{notations.includes("7") ? 7 : ""}</Text>
+        <Text style={styles.text}>{notations.includes("8") ? 8 : ""}</Text>
       </View>
     </View>
   );

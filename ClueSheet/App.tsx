@@ -4,6 +4,7 @@ import Tile from "./components/Tile";
 import Line from "./components/Line";
 import Section from "./components/Section";
 import { Header } from "react-native-elements";
+import PlayerSection from "./components/PlayersSection";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         centerComponent={{ text: "Clue Sheet", style: { color: "#fff" } }}
         backgroundColor="#df27df"
       />
+      <PlayerSection />
       <ScrollView>
         <Section label="Pessoal" />
         <Section label="Armas" />
