@@ -3,7 +3,10 @@
   "module": "esnext",
   "compilerOptions": {
     "checkJs": true,
-    "strict": true
+    "strict": false,
+    "skipLibCheck": true,
+    "target": "ES2015",
+    "strictNullChecks": false
   },
   "exclude": [".next", "coverage", "node_modules", "public"],
 }

@@ -6,39 +6,49 @@ import Section from "./components/Section";
 import { Header } from "react-native-elements";
 import PlayerSection from "./components/PlayersSection";
 import { ReactNode } from "react";
+import { AppContextProvider, useAppContext } from "./components/AppContext";
 
 const data = [
-  {
-    label: "Pessoas",
-    options: ["Mustard", "Plum", "Green", "Peacock", "Scarlett", "White"],
-  },
-  {
-    label: "Armas",
-    options: [
-      "Punhal",
-      "Candelabro",
-      "Revólver",
-      "Corda",
-      "Cano de Chumbo",
-      "Chave Inglesa",
-    ],
-  },
-  {
-    label: "Salas",
-    options: [
-      "Entrada",
-      "Sala",
-      "Sala Jantar",
-      "Salão Baile",
-      "Jardim Inverno",
-      "Sala Bilhar",
-      "Biblioteca",
-      "Escritóro",
-    ],
-  },
+  // {
+  //   label: "Pessoas",
+  //   options: ["Mustard", "Plum", "Green", "Peacock", "Scarlett", "White"],
+  // },
+  // {
+  //   label: "Armas",
+  //   options: [
+  //     "Punhal",
+  //     "Candelabro",
+  //     "Revólver",
+  //     "Corda",
+  //     "Cano de Chumbo",
+  //     "Chave Inglesa",
+  //   ],
+  // },
+  // {
+  //   label: "Salas",
+  //   options: [
+  //     "Entrada",
+  //     "Sala",
+  //     "Sala Jantar",
+  //     "Salão Baile",
+  //     "Jardim Inverno",
+  //     "Sala Bilhar",
+  //     "Biblioteca",
+  //     "Escritóro",
+  //   ],
+  // },
 ];
 
 export default function App() {
+  return (
+    <AppContextProvider>
+      <ClueApp />
+    </AppContextProvider>
+  );
+}
+
+function ClueApp() {
+  const { state } = useAppContext();
   return (
     <View style={styles.container}>
       <Header
@@ -47,15 +57,13 @@ export default function App() {
       />
       <PlayerSection />
       <ScrollView>
-        {data.map<ReactNode>((section) => (
+        {state.map<ReactNode>((section) => (
           <Section
             key={section.label}
             label={section.label}
             options={section.options}
           />
         ))}
-        {/* <Section label="Armas" options={[]} />
-        <Section label="Salas" options={[]} /> */}
         <StatusBar style="auto" />
       </ScrollView>
     </View>

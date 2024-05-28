@@ -1,14 +1,4 @@
-import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import Dialog, { DialogContent } from "react-native-popup-dialog";
-import TileContent from "./TileContent";
-import { Input } from "react-native-elements";
+import { StyleSheet, View } from "react-native";
 import Player from "./Player";
 
 export default function PlayerSection() {
@@ -20,22 +10,6 @@ export default function PlayerSection() {
       <Player />
       <Player />
       <Player />
-      {/* <Input
-        inputContainerStyle={{
-          height: 10,
-          alignSelf: "center",
-        }}
-        style={styles.input}
-        placeholder="Pl 1"
-      />
-      <Input
-        inputContainerStyle={{
-          height: 10,
-          alignSelf: "center",
-        }}
-        style={styles.input}
-        placeholder="Pl 1"
-      /> */}
     </View>
   );
 }
