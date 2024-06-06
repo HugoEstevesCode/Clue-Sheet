@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { Dispatch, createContext, useContext, useReducer } from "react";
 
 type SectionType = {
   label: string;
@@ -8,7 +8,8 @@ type SectionType = {
 type GameInfo = SectionType[];
 
 type AppContextType = {
-  game: GameInfo;
+  state: GameInfo;
+  dispatch: Dispatch<ACTIONTYPE>;
 };
 
 type ACTIONTYPE = { type: "update"; payload: Partial<AppContextType> };
@@ -46,12 +47,18 @@ const data = [
 
 const AppContext = createContext<AppContextType>(null);
 
-function reducer(state: AppContextType, action: ACTIONTYPE): GameInfo {
-  // ...
+function reducer(state: GameInfo, action: ACTIONTYPE): GameInfo {
+  switch (action.type) {
+    case "update": {
+      return { ...state };
+    }
+    default:
+      return { ...state };
+  }
 }
 
 export function AppContextProvider({ children }) {
-  const [state, dispatch] = useReducer<typeof reducer, GameInfo>(reducer, data);
+  const [state, dispatch] = useReducer(reducer, data);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
@@ -62,7 +69,7 @@ export function AppContextProvider({ children }) {
 
 export function useAppContext() {
   const state = useContext(AppContext);
-  if (state === "undefined") {
+  if (typeof state === "undefined") {
     throw new Error("useAppContext must be used within a AppContextProvider");
   }
 
