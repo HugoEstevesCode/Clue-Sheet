@@ -1,43 +1,10 @@
 import React, { ReactNode } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Header } from "react-native-elements";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
-import Tile from "./components/Tile";
-import Line from "./components/Line";
+import { ScrollView, StyleSheet, View } from "react-native";
 import Section from "./components/Section";
 import PlayerSection from "./components/PlayersSection";
 import { AppContextProvider, useAppContext } from "./components/AppContext";
-
-const data = [
-  // {
-  //   label: "Pessoas",
-  //   options: ["Mustard", "Plum", "Green", "Peacock", "Scarlett", "White"],
-  // },
-  // {
-  //   label: "Armas",
-  //   options: [
-  //     "Punhal",
-  //     "Candelabro",
-  //     "Revólver",
-  //     "Corda",
-  //     "Cano de Chumbo",
-  //     "Chave Inglesa",
-  //   ],
-  // },
-  // {
-  //   label: "Salas",
-  //   options: [
-  //     "Entrada",
-  //     "Sala",
-  //     "Sala Jantar",
-  //     "Salão Baile",
-  //     "Jardim Inverno",
-  //     "Sala Bilhar",
-  //     "Biblioteca",
-  //     "Escritóro",
-  //   ],
-  // },
-];
 
 export default function App() {
   return (

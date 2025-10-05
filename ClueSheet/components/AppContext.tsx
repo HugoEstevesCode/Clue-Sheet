@@ -1,4 +1,11 @@
-import React, { Dispatch, createContext, useContext, useReducer } from "react";
+import React, {
+  Dispatch,
+  FunctionComponent,
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useReducer,
+} from "react";
 
 type SectionType = {
   label: string;
@@ -57,7 +64,9 @@ function reducer(state: GameInfo, action: ACTIONTYPE): GameInfo {
   }
 }
 
-export function AppContextProvider({ children }) {
+export const AppContextProvider: FunctionComponent<PropsWithChildren> = ({
+  children,
+}) => {
   const [state, dispatch] = useReducer(reducer, data);
 
   return (
@@ -65,7 +74,7 @@ export function AppContextProvider({ children }) {
       {children}
     </AppContext.Provider>
   );
-}
+};
 
 export function useAppContext() {
   const state = useContext(AppContext);

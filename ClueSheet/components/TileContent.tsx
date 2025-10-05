@@ -1,24 +1,5 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
-
-const possibleOptions = [
-  "X",
-  "-",
-  "?",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-];
-
-const notationOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-const valuesOptions = ["X", "-", "?"];
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 type TileContentProps = {
   value: string;
