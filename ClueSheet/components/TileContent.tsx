@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
-import Dialog, { DialogContent } from "react-native-popup-dialog";
 
 const possibleOptions = [
   "X",

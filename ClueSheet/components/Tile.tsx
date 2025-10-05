@@ -5,8 +5,8 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View,
+  Modal,
 } from "react-native";
-import Dialog, { DialogContent } from "react-native-popup-dialog";
 import TileContent from "./TileContent";
 
 const possibleOptions = [
@@ -67,25 +67,30 @@ export default function Tile({ isFilled }: TileProps) {
   return (
     <TouchableOpacity onPress={() => setShowOptionMenu(true)}>
       <View style={styles.container}>
-        {/* <Text style={styles.text}>{value}</Text> */}
         <TileContent value={value} notations={notations} isFilled={isFilled} />
-        <Dialog
+        <Modal
           visible={showOptionMenu}
-          onTouchOutside={() => setShowOptionMenu(false)}
+          onPointerLeave={() => setShowOptionMenu(false)}
+          animationType="slide"
+          transparent
         >
-          <DialogContent style={styles.dialogContent}>
-            {possibleOptions.map((option) => (
-              <TouchableHighlight
-                key={option}
-                style={{ height: 40 }}
-                underlayColor={"#ffffff4c"}
-                onPress={() => selectOption(option)}
-              >
-                <Text style={styles.dialogOption}>{option}</Text>
-              </TouchableHighlight>
-            ))}
-          </DialogContent>
-        </Dialog>
+          <View
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          >
+            <View style={styles.dialogContent}>
+              {possibleOptions.map((option) => (
+                <TouchableHighlight
+                  key={option}
+                  style={{ height: 40 }}
+                  underlayColor={"#ffffff4c"}
+                  onPress={() => selectOption(option)}
+                >
+                  <Text style={styles.dialogOption}>{option}</Text>
+                </TouchableHighlight>
+              ))}
+            </View>
+          </View>
+        </Modal>
       </View>
     </TouchableOpacity>
   );
