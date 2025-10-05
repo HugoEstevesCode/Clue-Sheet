@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import React, { StyleSheet, View } from "react-native";
 import Player from "./Player";
 
 export default function PlayerSection() {

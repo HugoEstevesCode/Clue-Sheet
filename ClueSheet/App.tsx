@@ -1,11 +1,11 @@
+import React, { ReactNode } from "react";
 import { StatusBar } from "expo-status-bar";
+import { Header } from "react-native-elements";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import Tile from "./components/Tile";
 import Line from "./components/Line";
 import Section from "./components/Section";
-import { Header } from "react-native-elements";
 import PlayerSection from "./components/PlayersSection";
-import { ReactNode } from "react";
 import { AppContextProvider, useAppContext } from "./components/AppContext";
 
 const data = [

@@ -2,6 +2,7 @@
   "extends": "expo/tsconfig.base",
   "module": "esnext",
   "compilerOptions": {
+    "jsx": "react",
     "checkJs": true,
     "strict": false,
     "skipLibCheck": true,

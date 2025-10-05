@@ -1,4 +1,4 @@
-import { Dispatch, createContext, useContext, useReducer } from "react";
+import React, { Dispatch, createContext, useContext, useReducer } from "react";
 
 type SectionType = {
   label: string;
